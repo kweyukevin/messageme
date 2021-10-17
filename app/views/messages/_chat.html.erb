@@ -1,0 +1,25 @@
+<div class="chat-history">
+    <ul class="m-b-0">
+           <% @messages.each do |c| %>
+                <!--<b><%=  %></b> : <%= c.body %>-->
+               <%if c.user_id == current_user.id%> 
+                    <li class="clearfix">
+                        <div class="message-data text-right">
+                            <span class="message-data-time text-right"><%= c.created_at %></span>
+                            <!--<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="avatar">-->
+                        </div>
+                        <div class="message other-message float-right"> <%= c.body %></div>
+                    </li>
+                <%else%>
+                    
+                    <li class="clearfix">
+                        <div class="message-data">
+                            <span class="message-data-time"><%= c.created_at %></span>
+                        </div>
+                        <div class="message my-message"><%= c.body %></div>                                    
+                    </li>
+                <%end%>
+            <%end%>                              
+        
+    </ul>
+</div>
